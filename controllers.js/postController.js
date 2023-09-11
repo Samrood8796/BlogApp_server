@@ -6,7 +6,7 @@ import {
   fetchFindData,
 } from "../utils/fetchData.js";
 
-/* CREATE */
+/* Create post */
 export const createPost = async (req, res) => {
   try {
     const { title, explanation } = req.body;
@@ -40,7 +40,7 @@ export const createPost = async (req, res) => {
 };
 
 
-/* READ */
+
 export const getFeedPosts = async (req, res) => {
   try {
     const posts = await fetchFindData({ isDelete: false });
@@ -62,7 +62,7 @@ export const getUserPosts = async (req, res) => {
   }
 };
 
-/* UPDATE */
+
 export const likePost = async (req, res) => {
     try {
         const { id } = req.user
@@ -86,7 +86,7 @@ export const likePost = async (req, res) => {
     }
 }
 
-// ADD COMMENT
+// add comment
 export const postComment = async (req, res) => {
   try {
     const { postId } = req.params;
