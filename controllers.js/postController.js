@@ -109,7 +109,6 @@ export const deletePost = async (req, res) => {
   try {
     const { postId } = req.params;
     const post = await Post.findByIdAndUpdate(postId, { isDelete: true }, { new: true });
-    // const post = await Post.findById(postId);
     const { imagePublicId } = post
     console.log("==>",post);
     console.log("==",imagePublicId);
