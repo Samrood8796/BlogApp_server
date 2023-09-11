@@ -10,16 +10,12 @@ const jwt_secret_key = process.env.JWT_SECRET
 import transport from "../config/nodemailer.js";
 dotenv.config();
 
-// REGISTER USER
+// Register
 export const register = async (req, res) => {
-    console.log("called", req.body);
     try {
-        // const result = await cloudinary.uploader.upload(req.file.path, {
-        //   folder: "ProfileImage",
-        // }); 
         const { userName, email, password, phoneNumber } = req.body;
 
-        // Add input validation rules
+        // input validation rules
         await Promise.all([
             body("userName")
                 .matches(/^[a-z0-9A-Z]+$/)
@@ -77,7 +73,7 @@ export const register = async (req, res) => {
 };
 
 
-// LOGGING IN
+// login
 export const login = async (req, res) => {
     try {
         const {userNameOrEmail, password } = req.body;
@@ -97,7 +93,7 @@ export const login = async (req, res) => {
     }
 };
 
-// UPDATE PROFILE PHOTO
+// update profile pic
 export const updateProPic = async (req, res) => { 
     try {
         const result = await cloudinary.uploader.upload(req.file.path, {
@@ -217,7 +213,7 @@ export const resetPassword = async (req, res) => {
     }
 }
 
-// GOOGLE SIGNUP
+// Google Login
 
 export const googleLogin = async (req, res) => {
     try {
