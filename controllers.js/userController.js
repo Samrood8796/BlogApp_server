@@ -88,3 +88,15 @@ export const addProfilepPic = async (req, res) => {
         return res.status(500).json('internal error occured')  
     } 
 }
+
+export const getAllUsers = async (req, res) => {
+    try {
+        const { id, userName } = req.user
+        const allusers = await User.find().select('userName profilePic name')
+
+        return res.status(200).json({ data: allusers })
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json('internal error occured')
+    }
+}
